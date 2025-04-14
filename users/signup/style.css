@@ -1,0 +1,113 @@
+/* Reset basic elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply the Lato font and set the background */
+body {
+    font-family: 'Lato', sans-serif;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container for the login form */
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Style the login form */
+.signup-form {
+    background: #2d2d2d;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+/* Remove default fieldset styles */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the legend */
+legend {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #e6e6e6;
+    text-align: center;
+}
+
+select[name="gender"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 1em;
+    background: #3d3d3d;
+    color: #e6e6e6;
+}
+
+/* Style common input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    font-size: 1em;
+    background: #3d3d3d;
+    color: #e6e6e6;
+}
+
+/* Focus state for input fields */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #5a0f0f;
+    outline: none;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #5a0f0f;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for the submit button */
+input[type="submit"]:hover {
+    background: #7a1313;
+}
+
+/* Style the Forgot Password link */
+.forgot-password {
+    display: block;
+    text-align: center;
+    font-size: 0.9em;
+    color: #4a8af4;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the Forgot Password link */
+.forgot-password:hover {
+    color: #3a7ae0;
+}

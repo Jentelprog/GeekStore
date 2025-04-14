@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeekStore - Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="signup-container">
+    <form action="sign_up.php" method="post" class="signup-form">
+      <fieldset>
+        <legend>Sign Up</legend>
+        <label>First Name:</label>
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <label>Last Name:</label>
+        <input type="text" name="last_name" placeholder="Last Name" required>
+        
+        <label>Gender:</label>
+        <select name="gender">
+          <option value="0">Male</option>
+          <option value="1">Female</option>
+        </select>
+
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Email" required>
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Password" required>
+        <label>Confirme Password:</label>
+        <input type="password" name="conf_password" placeholder="rewrite Password" required>
+        
+        <input type="submit" value="Sign Up">
+      </fieldset>
+    </form>
+  </div>
+</body>
+</html>
