@@ -2,7 +2,6 @@
 $error = "";
 session_start();
 include "../../db_connect.php";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -25,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         } else {
             $error = "Incorrect password or email. Please try again.";
+            // echo "<script>alert('This is an alert from PHP!');</script>";
         }
     } else {
         $error = "Incorrect password or email. Please try again.";
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <input type="submit" value="Login">
-                <a href="../signup/sign_up.html" class="sign up">Forgot Password?</a>
+                <a href="../signup/sign_up.html" class="sign up">Sign up</a>
             </fieldset>
         </form>
     </div>

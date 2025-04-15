@@ -22,6 +22,9 @@ if (empty($_SESSION["user_id"])) {
 			<a href="#shop">Shop</a>
 			<a href="#about">About</a>
 			<a href="#contact">Contact</a>
+			<form class="logout-form" action="logout.php" method="post">
+				<input type="submit" value="log out">
+			</form>
 		</nav>
 	</header>
 	<section id="home">
@@ -35,28 +38,33 @@ if (empty($_SESSION["user_id"])) {
 		<h2>Shop Anime & Manga Merch</h2>
 		<div class="product-container" id="product-list">
 			<div class="product-card">
-				<img src="../img/sakamoto_toy.webp" alt="Anime Figure">
+				<img src="../../img/sakamoto_toy.webp" alt="Anime Figure">
 				<h3>Anime Figure</h3>
 				<a href="../Products figures/index.html">Explore</a>
 			</div>
 			<div class="product-card">
 				<img src="../../img/sl_hoodie.webp" alt="Anime Hoodie">
 				<h3>Anime Hoodie</h3>
-				<a href="../../Products hoodie/index.html">Explore</a>
+				<a href="../Products hoodie/index.html">Explore</a>
 			</div>
 			<div class="product-card">
 				<img src="../../img/anime stickers example.jpg" alt="Anime stickers">
 				<h3>Anime stickers</h3>
-				<a href="../../Products sticker/index.html">Explore</a>
+				<a href="../Products sticker/index.html">Explore</a>
 			</div>
 		</div>
 	</section>
 	<section id="contact">
-		<div>contact</div>
+		<h2>Contact Us</h2>
+		<p>Email: support@geekstore.com</p>
+		<p>Follow us on social media!</p>
 	</section>
+
 	<footer id="about">
-		<div>about</div>
+		<h2>About GeekStore</h2>
+		<p>We’re passionate about bringing anime and manga fans the best merch in the galaxy.</p>
 	</footer>
+
 </body>
 
 </html>
