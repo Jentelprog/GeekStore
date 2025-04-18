@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     if ($email == "admin@gmail.com" && $password == "admin") {
-        header("Location: ../../admin/mainPage.php");
+        header("Location: ../../admin/index.php");
         exit();
     }
     //sql 
