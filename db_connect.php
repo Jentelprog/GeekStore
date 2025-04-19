@@ -1,7 +1,7 @@
 <?php
 $host = "localhost"; // Change if necessary
 $user = "root"; // Default MySQL user
-$pass = "Ilyes/148639527"; // Default password (leave empty if not set)
+$pass = ""; // Default password (leave empty if not set)
 $dbname = "geekstore";
 
 // Create connection

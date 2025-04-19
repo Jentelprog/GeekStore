@@ -4,6 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: Exo 2;
 }
 html {
     scroll-behavior: smooth;
@@ -16,7 +17,7 @@ body {
 
 /* Style the header */
 header {
-    background:url("../../img/background1.jpg");
+    background:url("../../img/dark-blue.jpg");
     background-size: cover;
     color: white;
     padding: 15px 50px;
@@ -31,8 +32,11 @@ header {
 
 /* Style the logo */
 .logo {
-    width: 70px;
-    height: auto;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100px;
+    height: 100%;
 }
 
 /* Style the navbar */
@@ -44,20 +48,22 @@ header {
 /* Style navbar links */
 .navbar a {
     color: white;
-    font-size: 18px;
+    font-size: 25px;
     text-decoration: none;
     padding: 10px 15px;
     transition: background 0.3s ease;
+    font-family: Bangers;
 }
 
 /* Hover effect */
 .navbar a:hover {
-    background: #ff0077;
+    background: #00F0FF;
     border-radius: 5px;
+    transition: background 1s ease;
 }
 #home{
     
-    background:url("../../img/background2.jpg") ;
+    background:url("../../img/backgroundtest.jpg") ;
     background-size: cover;
     background-position: center;
     border: solid 2px black;
@@ -108,7 +114,7 @@ header {
 .btn {
     display: inline-block;
     padding: 12px 25px;
-    background: rgb(176, 8, 8);
+    background-color: #193b7a ;
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
@@ -117,7 +123,7 @@ header {
 }
 
 .btn:hover {
-    background: #960a0a;
+    background: #00F0FF ;
 }
 
 #shop{
