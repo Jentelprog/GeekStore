@@ -32,7 +32,7 @@ if (empty($_SESSION["user_id"])) {
 			<form class="logout-form" action="logout.php" method="post">
 			<button type="submit" name="logout" class="submit">
 			<i class="fa-solid fa-right-to-bracket"></i>
-			<button type="submit" name="logout" class="submit"></button>
+			</button>
 			</form>
 		</nav>
 	</header>
