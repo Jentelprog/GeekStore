@@ -31,7 +31,7 @@ if (empty($_SESSION["user_id"])) {
 		<div class="hero-content">
 			<h1>Welcome to GeekStore</h1>
 			<p>Your ultimate destination for anime & manga merch – from stickers and clothes to figures and more!</p>
-			<a href="../Products/index.html" class="btn">Shop Now</a>
+			<a href="../Products/index.php" class="btn">Shop Now</a>
 		</div>
 	</section>
 	<section id="shop">
@@ -40,17 +40,17 @@ if (empty($_SESSION["user_id"])) {
 			<div class="product-card">
 				<img src="../../img/sakamoto_toy.webp" alt="Anime Figure">
 				<h3>Anime Figure</h3>
-				<a href="../Products figures/index.html">Explore</a>
+				<a href="../Products/index.php?category=Figure">Explore</a>
 			</div>
 			<div class="product-card">
 				<img src="../../img/sl_hoodie.webp" alt="Anime Hoodie">
 				<h3>Anime Hoodie</h3>
-				<a href="../Products hoodie/index.html">Explore</a>
+				<a href="../Products/index.php?category=Hoodie">Explore</a>
 			</div>
 			<div class="product-card">
 				<img src="../../img/anime stickers example.jpg" alt="Anime stickers">
 				<h3>Anime stickers</h3>
-				<a href="../Products sticker/index.html">Explore</a>
+				<a href="../Products/index.php?category=Sticker">Explore</a>
 			</div>
 		</div>
 	</section>

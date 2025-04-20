@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssss", $_POST["name"], $_POST["price"], $_POST["image"], $_POST["description"], $_POST["category"]);
     $stmt->execute();
     $stmt->close();
-    header("Location: admin.php");
+    header("Location: index.php");
     exit;
   }
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssi", $_POST["name"], $_POST["price"], $_POST["image"], $_POST["description"], $_POST["category"], $_POST["product_id"]);
     $stmt->execute();
     $stmt->close();
-    header("Location: admin.php");
+    header("Location: index.php");
     exit;
   }
 }
@@ -29,7 +29,7 @@ if (isset($_GET["delete"])) {
   $stmt->bind_param("i", $_GET["delete"]);
   $stmt->execute();
   $stmt->close();
-  header("Location: admin.php");
+  header("Location: index.php");
   exit;
 }
 
@@ -81,7 +81,7 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
       <?php if ($edit_product): ?>
         <input type="hidden" name="product_id" value="<?= $edit_product['id'] ?>">
         <button type="submit" name="update_product">Update Product</button>
-        <a href="admin.php">Cancel</a>
+        <a href="index.php">Cancel</a>
       <?php else: ?>
         <button type="submit" name="add_product">Add Product</button>
       <?php endif; ?>
@@ -93,14 +93,14 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
     <div id="productList">
       <?php foreach ($products as $product): ?>
         <div class="product-card">
-          <img src="<?= htmlspecialchars($product['image']) ?>" width="100">
-          <h3><?= htmlspecialchars($product['name']) ?></h3>
-          <p><?= htmlspecialchars($product['price']) ?> dt</p>
-          <p><?= htmlspecialchars($product['description']) ?></p>
-          <p>Category: <?= htmlspecialchars($product['category']) ?></p>
+          <img src="<?php echo $product['image'] ?>" width="100">
+          <h3><?php echo $product['name'] ?></h3>
+          <p><?php echo $product['price'] ?> dt</p>
+          <p><?php echo $product['description'] ?></p>
+          <p>Category: <?php echo $product['category'] ?></p>
           <a href="?delete=<?= $product['id'] ?>" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
           |
-          <a href="?edit=<?= $product['id'] ?>">Edit</a>
+          <a href="?edit=<?php echo $product['id'] ?>">Edit</a>
         </div>
       <?php endforeach; ?>
     </div>
