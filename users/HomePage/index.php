@@ -30,6 +30,7 @@ if (empty($_SESSION["user_id"])) {
 			<a href="#shop">Shop</a>
 			<a href="#about">About</a>
 			<a href="#contact">Contact</a>
+			<a href="../card/main.php">card</a>
 			<form class="logout-form" action="logout.php" method="post">
 				<button type="submit" name="logout" class="submit">
 					<i class="fa-solid fa-right-to-bracket"></i></button>

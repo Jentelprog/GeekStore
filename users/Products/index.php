@@ -85,7 +85,11 @@ $result = $stmt->get_result();
                         <p><?php echo $row['price'] ?>dt</p>
                         <p><?php echo $row['description'] ?></p>
                         <p><strong>Category:</strong> <?php echo $row['category'] ?></p>
-                        <button>Add to Cart</button>
+                        <form action="../card/add.php" method="get">
+                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                            <button type="submit">Add to Cart</button>
+                        </form>
+
                     </div>
                 <?php endwhile; ?>
             <?php endif; ?>
