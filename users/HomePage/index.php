@@ -77,7 +77,7 @@ if (empty($_SESSION["user_id"])) {
 
 		<div class="poseimg">
 			<img src="../../img/pose3.jpg" alt="Pose3">
-			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=kaiju n°8">purchase kaiju n°8</a></div>
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=kaiju">purchase kaiju n°8</a></div>
 		</div>
 	</section>
 	<section id="contact">

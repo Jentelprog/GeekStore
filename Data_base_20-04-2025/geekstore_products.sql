@@ -16,30 +16,23 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cards`
+-- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `cards`;
+DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cards` (
-  `product_id` int NOT NULL,
-  `user_id` int NOT NULL,
-  PRIMARY KEY (`product_id`,`user_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `cards_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  CONSTRAINT `cards_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `products` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `description` text,
+  `category` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `category_check` CHECK ((`category` in (_utf8mb4'sticker',_utf8mb4'hoodie',_utf8mb4'figure')))
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cards`
---
-
-LOCK TABLES `cards` WRITE;
-/*!40000 ALTER TABLE `cards` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cards` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -50,4 +43,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-20 12:50:51
+-- Dump completed on 2025-04-20 14:37:31
