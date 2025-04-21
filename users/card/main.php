@@ -26,91 +26,46 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart - GeekStore</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-        }
-
-        .product-card {
-            width: 280px;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #eee;
-        }
-
-        .product-info {
-            padding: 16px;
-        }
-
-        .product-info h3 {
-            margin: 0 0 10px;
-            font-size: 20px;
-        }
-
-        .product-info p {
-            margin: 6px 0;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .price {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .empty-message {
-            text-align: center;
-            font-size: 18px;
-            color: #888;
-            margin-top: 50px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header>
+        <a href="#"><img src="../../img/whitelogo.png" alt="GeekStore Logo" class="logo"></a>
+        <nav class="navbar">
+            <a href="../HomePage/index.php">Home</a>
+            <a href="../HomePage/index.php">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="../card/main.php">card</a>
+            <form class="logout-form" action="logout.php" method="post">
+                <button type="submit" name="logout" class="submit">
+                    <i class="fa-solid fa-right-to-bracket"></i></button>
+            </form>
+        </nav>
+    </header>
     <h1>Your Cart</h1>
-
     <?php if ($result->num_rows > 0): ?>
         <div class="card-container">
             <?php while ($product = $result->fetch_assoc()): ?>
                 <div class="product-card">
-                    <img src="<?php echo $product['image']?>" alt="<?php echo $product['name'] ?>">
+                    <img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>">
                     <div class="product-info">
                         <h3><?php echo $product['name'] ?></h3>
                         <p><?php echo $product['description'] ?></p>
                         <p class="price"><?php echo $product['price'] ?> TND</p>
                     </div>
+                    <form action="del.php" method="get">
+                        <input type="hidden" value="<?php echo $product['id'] ?>" name="id">
+                        <button type="submit">remove</button>
+                    </form>
                 </div>
             <?php endwhile; ?>
+        </div>
+        <div class="checkout-container">
+            <form action="checkout.php" method="post">
+                <button type="submit" class="checkout-button">Checkout</button>
+            </form>
         </div>
     <?php else: ?>
         <p class="empty-message">No products in your cart.</p>
