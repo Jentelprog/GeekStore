@@ -7,6 +7,7 @@ if (empty($_SESSION["user_id"])) {
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,6 +30,7 @@ if (empty($_SESSION["user_id"])) {
 			<a href="#shop">Shop</a>
 			<a href="#about">About</a>
 			<a href="#contact">Contact</a>
+			<a href="../card/main.php">card</a>
 			<form class="logout-form" action="logout.php" method="post">
 			<button type="submit" name="logout" class="submit">
 			<i class="fa-solid fa-right-to-bracket"></i>
@@ -40,7 +42,7 @@ if (empty($_SESSION["user_id"])) {
 		<div class="hero-content">
 			<h1>Welcome to GeekStore</h1>
 			<p>Your ultimate destination for anime & manga merch – from stickers and clothes to figures and more!</p>
-			<a href="../Products/index.html" class="btn">Shop Now</a>
+			<a href="../Products/index.php" class="btn">Shop Now</a>
 		</div>
 	</section>
 	<section id="shop">
@@ -59,7 +61,7 @@ if (empty($_SESSION["user_id"])) {
 			<div class="product-card">
 				<img src="../../img/anime stickers example.jpg" alt="Anime stickers">
 				<h3>Anime stickers</h3>
-				<a href="../Products sticker/index.html">Explore</a>
+				<a href="../Products/index.php?category=Sticker">Explore</a>
 			</div>
 			<div class="product-card">
 				<img src="../../img/gfreddy_plush.jpg" alt="Anime stickers">
@@ -70,23 +72,22 @@ if (empty($_SESSION["user_id"])) {
 		</div>
 	</section>
 	<section id="pose">
-  <div class="poseimg">
-    <img src="../../img/pose1.jpg" alt="Pose1">
-    <div class="overlay"><a class="overlay-link" href="../Products figures/index.html">purchase jujutsu kaisen</a></div>
-	
-  </div>
+		<div class="poseimg">
+			<img src="../../img/pose1.jpg" alt="Pose1">
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=jujutsu kaisen">purchase jujutsu kaisen</a></div>
 
-  <div class="poseimg">
-    <img src="../../img/pose2.jpg" alt="Pose2">
-    <div class="overlay"><a class="overlay-link" href="../Products figures/index.html">purchase blue lock</a></div>
-	
-  </div>
+		</div>
 
-  <div class="poseimg">
-    <img src="../../img/pose3.jpg" alt="Pose3">
-    <div class="overlay"><a class="overlay-link" href="../Products figures/index.html">purchase kaiju n°8</a></div>
-  </div>
-</section>
+		<div class="poseimg">
+			<img src="../../img/pose2.jpg" alt="Pose2">
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=blue lock">purchase blue lock</a></div>
+		</div>
+
+		<div class="poseimg">
+			<img src="../../img/pose3.jpg" alt="Pose3">
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=kaiju">purchase kaiju n°8</a></div>
+		</div>
+	</section>
 	<section id="contact">
 		<h2>Contact Us</h2>
 		<p>Email: support@geekstore.com</p>

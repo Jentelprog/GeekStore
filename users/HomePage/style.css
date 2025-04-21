@@ -263,11 +263,10 @@ section{
     border-radius: 5px;
     padding: 5px 15px;
     margin-bottom: 10px;
-    transition: background 0.3s ease;
 
   }
   .overlay-link:hover{
-    background:var(--color-button);
+    
   }
   
   .poseimg:hover .overlay {
@@ -285,3 +284,4 @@ section{
   .submit:hover{
     transform: scale(1.1);
   }
+
