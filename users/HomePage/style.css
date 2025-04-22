@@ -37,7 +37,7 @@ header {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    z-index: 1;
+    z-index: 10;
 }
 
 /* Style the logo */
@@ -254,6 +254,7 @@ section{
     transition: opacity 0.3s ease;
   }
   .overlay-link{
+    position: relative;
     color:var(--color-secondary);
     background:var(--color-white);
     font-size: 1.5em;
@@ -263,12 +264,21 @@ section{
     border-radius: 5px;
     padding: 5px 15px;
     margin-bottom: 10px;
-
+    transition: color 0.8s ease-in-out;
   }
-  .overlay-link:hover{
-    
-  }
-  
+  .overlay-link>span {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: var(--color-hover);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 0.8s ease-in-out;
+}
+.overlay-link:hover span {
+    width: 100%;
+}
   .poseimg:hover .overlay {
     opacity: 1;
   }
@@ -284,4 +294,93 @@ section{
   .submit:hover{
     transform: scale(1.1);
   }
+  #contact{
+    background:url("../../img/inside-anime-store.jpg") ;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+  }
+  #contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(23, 40, 71, 0.85);
+    z-index: 1;
+  }
+.contact-content{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px ;
 
+  }
+.contact-title{
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+  }
+.contact-info{
+    background: var(--color-white);
+    color: #0A0A14;
+    display: inline;
+    z-index: 2;
+    color: var(--color-hover);
+    margin-right: 100px;
+    background: none;
+}
+.contact-info p{
+    padding: 30px 30px 30px 0;
+    color: white;
+
+}
+.contact-info i{
+    margin-right: 20px;
+    
+}
+
+.contact-form{
+    position: relative;
+    display: inline;
+    background: white;
+    z-index: 2;
+    width: 350px;
+    padding: 20px;
+}
+.contact-form h3{
+    text-align: center;
+    padding-top: 20px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  font-size: 14px;
+  
+}
+.contact-form button {
+    background-color: #00BCD4;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .contact-form button:hover {
+    background-color:var(--color-hover);
+  }
+  footer{
+    background: black;
+    color: white;
+    padding: 40px;
+    text-align: center;
+  }

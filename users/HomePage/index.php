@@ -27,10 +27,10 @@ if (empty($_SESSION["user_id"])) {
 		<a href="#"><img src="../../img/whitelogo.png" alt="GeekStore Logo" class="logo"></a>
 		<nav class="navbar">
 			<a href="#home">Home</a>
-			<a href="#shop">Shop</a>
-			<a href="#about">About</a>
+			<a href="../Products/index.php">Shop</a>
+			<a href="#pose">Features</a>
 			<a href="#contact">Contact</a>
-			<a href="../card/main.php">card</a>
+			<a href="../card/main.php">cart</a>
 			<form class="logout-form" action="logout.php" method="post">
 			<button type="submit" name="logout" class="submit">
 			<i class="fa-solid fa-right-to-bracket"></i>
@@ -46,16 +46,16 @@ if (empty($_SESSION["user_id"])) {
 		</div>
 	</section>
 	<section id="shop">
-		<h2>Best Seller</h2>
+		<h2>Our best offers</h2>
 		<div class="product-container" id="product-list">
 			<div class="product-card">
 				<img src="../../img/sakamoto_toy.webp" alt="Anime Figure">
-				<h3>Sakamoto Figure</h3>
+				<h3>Anime Figures</h3>
 				<a href="../Products figures/index.html">Explore</a>
 			</div>
 			<div class="product-card">
 				<img src="../../img/sl_hoodie.webp" alt="Anime Hoodie">
-				<h3>Solo Leveling Hoodie</h3>
+				<h3>Anime Hoodies</h3>
 				<a href="../Products hoodie/index.html">Explore</a>
 			</div>
 			<div class="product-card">
@@ -65,7 +65,7 @@ if (empty($_SESSION["user_id"])) {
 			</div>
 			<div class="product-card">
 				<img src="../../img/gfreddy_plush.jpg" alt="Anime stickers">
-				<h3>Golden Freddy Plushie</h3>
+				<h3>Plushies</h3>
 				<a href="../Products sticker/index.html">Explore</a>
 			</div>
 			</div>
@@ -74,29 +74,55 @@ if (empty($_SESSION["user_id"])) {
 	<section id="pose">
 		<div class="poseimg">
 			<img src="../../img/pose1.jpg" alt="Pose1">
-			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=jujutsu kaisen">purchase jujutsu kaisen</a></div>
-
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=jujutsu kaisen"><span></span>purchase jujutsu kaisen</a></div>
 		</div>
 
 		<div class="poseimg">
 			<img src="../../img/pose2.jpg" alt="Pose2">
-			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=blue lock">purchase blue lock</a></div>
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=blue lock"><span></span>purchase blue lock</a></div>
 		</div>
 
 		<div class="poseimg">
 			<img src="../../img/pose3.jpg" alt="Pose3">
-			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=kaiju">purchase kaiju n°8</a></div>
+			<div class="overlay"><a class="overlay-link" href="../Products/index.php?search=kaiju"><span></span>purchase kaiju n°8</a></div>
 		</div>
 	</section>
 	<section id="contact">
-		<h2>Contact Us</h2>
-		<p>Email: support@geekstore.com</p>
-		<p>Follow us on social media!</p>
+	<div class="overlay-contact"></div>
+	<h2 class="contact-title">Contact Us</h2>
+	<div class="contact-content">
+		<div class="contact-info">
+		<h3><i class="fa-solid fa-location-dot"></i>Address</h3>
+            <p>143 Rue de la Nouvelle Delhi,Sfax</p>
+            
+            <h3><i class="fa-solid fa-phone"></i></i>Phone</h3>
+            <p>28-460-080</p>
+            
+            <h3><i class="fa-solid fa-envelope"></i></i>Email</h3>
+            <p>support@geekstore.com</p>
+        </div>
+		<div class="contact-form">
+			<h3>Send a message</h3>
+		<div class="form-group">
+                    <input  placeholder="Full Name"type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <input placeholder="email" type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <textarea id="message" placeholder="Type your Message..." name="message" required></textarea>
+                </div>
+		<button type="submit">Send</button>
+		</div>
+		
+	</div>
 	</section>
 
 	<footer id="about">
-		<h2>About GeekStore</h2>
 		<p>We're passionate about bringing anime and manga fans the best merch in the galaxy.</p>
+		<span>&copy; GeekStores, All Rights Reserved.</span>
 	</footer>
 
 </body>
