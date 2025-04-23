@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stml->bind_param("ssiss", $first_name, $last_name, $gender, $email, $hashed_password);
 
     if ($stml->execute()) {
-        echo "signup successful! you can now <a href='../login/index.html'>login</a>";
+        header("Location: ../login/login.php");
     } else {
         echo "error {$stml->error}";
     }

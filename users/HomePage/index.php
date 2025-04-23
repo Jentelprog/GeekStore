@@ -3,6 +3,20 @@ session_start();
 if (empty($_SESSION["user_id"])) {
 	header("Location: ../login/login.php");
 }
+if (isset($_POST['message'])) {
+	$message = $_POST['message'];
+	include_once '../../db_connect.php';
+	$sql = "INSERT INTO messages (user_id,message) VALUES (?,?)";
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param("is", $_SESSION["user_id"], $message);
+	$stmt->execute();
+	if ($stmt->affected_rows > 0) {
+		echo "<script>alert('Message sent successfully!');</script>";
+	} else {
+		echo "<script>alert('Failed to send message.');</script>";
+	}
+	$stmt->close();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,15 +96,42 @@ if (empty($_SESSION["user_id"])) {
 		</div>
 	</section>
 	<section id="contact">
-		<h2>Contact Us</h2>
-		<p>Email: support@geekstore.com</p>
-		<p>Follow us on social media!</p>
+		<div class="overlay-contact"></div>
+		<h2 class="contact-title">Contact Us</h2>
+		<div class="contact-content">
+			<div class="contact-info">
+				<h3><i class="fa-solid fa-location-dot"></i>Address</h3>
+				<p>143 Rue de la Nouvelle Delhi,Sfax</p>
+
+				<h3><i class="fa-solid fa-phone"></i></i>Phone</h3>
+				<p>28-460-080</p>
+
+				<h3><i class="fa-solid fa-envelope"></i></i>Email</h3>
+				<p>support@geekstore.com</p>
+			</div>
+			<form class="contact-form" action="" method="post">
+				<h3>Send a message</h3>
+				<!-- <div class="form-group">
+					<input placeholder="Full Name" type="text" id="name" name="name" required>
+				</div>
+
+				<div class="form-group">
+					<input placeholder="email" type="email" id="email" name="email" required>
+				</div> -->
+				<div class="form-group">
+					<textarea id="message" placeholder="Type your Message..." name="message" required></textarea>
+				</div>
+				<button type="submit">Send</button>
+			</form>
+
+		</div>
 	</section>
 
 	<footer id="about">
-		<h2>About GeekStore</h2>
-		<p>We’re passionate about bringing anime and manga fans the best merch in the galaxy.</p>
+		<p>We're passionate about bringing anime and manga fans the best merch in the galaxy.</p>
+		<span>&copy; GeekStores, All Rights Reserved.</span>
 	</footer>
+
 
 </body>
 

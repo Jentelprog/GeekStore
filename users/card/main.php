@@ -17,6 +17,8 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
+$somme = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +49,7 @@ $result = $stmt->get_result();
     <h1>Your Cart</h1>
     <?php if ($result->num_rows > 0): ?>
         <div class="card-container">
-            <?php while ($product = $result->fetch_assoc()): ?>
+            <?php while ($product = $result->fetch_assoc()): $somme = $somme + $product['price']; ?>
                 <div class="product-card">
                     <img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name'] ?>">
                     <div class="product-info">
@@ -62,13 +64,13 @@ $result = $stmt->get_result();
                 </div>
             <?php endwhile; ?>
         </div>
+        <p>product price : <?php echo $somme; ?></p>
         <div class="checkout-container">
-            <form action="checkout.php" method="post">
-                <button type="submit" class="checkout-button">Checkout</button>
-            </form>
+            <button class="checkout-button" onclick="alert('You paid!')">Checkout</button>
         </div>
     <?php else: ?>
         <p class="empty-message">No products in your cart.</p>
+        <p>product price : <?php echo $somme; ?></p>
     <?php endif; ?>
 </body>
 
