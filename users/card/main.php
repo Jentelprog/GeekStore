@@ -23,27 +23,33 @@ $result = $stmt->get_result();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart - GeekStore</title>
-    <link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GeekStore</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <a href="#"><img src="../../img/whitelogo.png" alt="GeekStore Logo" class="logo"></a>
-        <nav class="navbar">
-            <a href="../HomePage/index.php">Home</a>
-            <a href="../HomePage/index.php">Shop</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="../card/main.php">card</a>
-            <form class="logout-form" action="logout.php" method="post">
-                <button type="submit" name="logout" class="submit">
-                    <i class="fa-solid fa-right-to-bracket"></i></button>
-            </form>
-        </nav>
-    </header>
+<header>
+		<a href="#"><img src="../../img/whitelogo.png" alt="GeekStore Logo" class="logo"></a>
+		<nav class="navbar">
+			<a href="../HomePage/index.php">Home</a>
+			<a href="../Products/index.php">Shop</a>
+			<a href="../card/main.php">cart</a>
+			<form class="logout-form" action="logout.php" method="post">
+			<button type="submit" name="logout" class="submit">
+			<i class="fa-solid fa-right-to-bracket"></i>
+			</button>
+			</form>
+		</nav>
+	</header>
     <h1>Your Cart</h1>
     <?php if ($result->num_rows > 0): ?>
         <div class="card-container">

@@ -7,7 +7,7 @@
     --font-heading: 'Bangers',sans-serif;
     --font-body: 'Exo 2',sans-serif;
 }
-/* Reset basic elements */
+
 * {
     margin: 0;
     padding: 0;
@@ -18,13 +18,13 @@
 html {
     scroll-behavior: smooth;
   }
-/* Style the body */
+
 body {
     font-family:var(--font-body);
     background-color: var(--color-white);
 }
 
-/* Style the header */
+
 header {
     background:url("../../img/dark-blue.jpg");
     background-size: cover;
@@ -39,7 +39,7 @@ header {
     z-index: 10;
 }
 
-/* Style the logo */
+
 .logo {
     position: absolute;
     top:0;
@@ -48,13 +48,13 @@ header {
     height: 100%;
 }
 
-/* Style the navbar */
+
 .navbar {
     display: flex;
-    gap: 30px; /* Space between navbar links */
+    gap: 30px; 
 }
 
-/* Style navbar links */
+
 .navbar a {
     color: white;
     font-size: 25px;
@@ -64,7 +64,7 @@ header {
     font-family: Bangers;
 }
 
-/* Hover effect */
+
 .navbar a:hover {
     background: #00F0FF;
     border-radius: 5px;
@@ -85,7 +85,7 @@ header {
   h2{
     font-family: var(--font-heading);
     color: var(--color-primary);
-    font-size: 4em;
+    font-size: 3em;
     margin-bottom: 20px;
    letter-spacing: 3px;
 }
@@ -112,13 +112,8 @@ header {
     min-height: 100vh ;
     text-align: center;
     background:var(--color-white);
+    padding-bottom: 60px;
 }
-h2{
-    font-size: 2em;
-    margin-bottom: 20px;
-    color:#ae2e2e
-}
-
 .product-container{
     display: flex;
     justify-content: center;
@@ -135,19 +130,15 @@ h2{
     width: 250px;
     text-align: center;
     transition: transform 2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .product-card:hover {
     transform: scale(1.05);
 }
 
-.product-card p{
-    display: none;
-    transition: all 2s ease;
-}
-.product-card:hover p{
-    display:block;
-}
 .product-card img {
     width: 100%;
     height: 280px;
@@ -163,7 +154,17 @@ h2{
     font-size: 1.1em;
     color: #333;
 }
-
+.product-card p {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transition: opacity 0.5s ease, max-height 1s ease;
+  }
+.product-card:hover p{
+    opacity: 1;
+    visibility: visible;
+    max-height: 200px;
+}
 .product-card button {
     border: none;
     background:var(--color-button);
@@ -173,7 +174,6 @@ h2{
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    margin-top: 10px;
     transition: background 0.3s ease;
 }
 
@@ -183,11 +183,14 @@ h2{
 
 .search-container {
     display: flex;
-    width: 500px;
+    align-items: center;
+    justify-content: center;
+    max-width: 420px;
     border-radius: 50px;
-    overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     background: #f5f5f5;
+    overflow: hidden;
+    margin: auto;
 }
 
 .search-container input {
@@ -198,15 +201,20 @@ h2{
     outline: none;
     color: #555;
     border-right: 1px solid grey;
+    flex: 1;
 }
 
 #search-button{
-    background-color: #FDBA12;
+    background-color: var(--color-button);
     padding: 10px 15px;
-    flex: 1;
+    padding-right: 50px ;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    gap: 2px solid black;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    flex: 1;
+    height: 100%;
 
 }
 select{
@@ -217,5 +225,34 @@ select{
     background: transparent;
     outline: none;
     color: #555;
-    
+    border-right: 1px solid grey;
+  }
+  .search-container form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+@media (max-width: 767px) {
+    .navbar a{
+       font-size: 1.2em;
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .product-container {
+      align-items: center;
+    }
+  
+    .product-card {
+      width: 60%;
+    }
+  
+    h2 {
+      font-size: 2em;
+    }
+  
+    .btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
   }

@@ -60,8 +60,6 @@ $result = $stmt->get_result();
 		<nav class="navbar">
 			<a href="../HomePage/index.php">Home</a>
 			<a href="../Products/index.php">Shop</a>
-			<a href="#pose">Features</a>
-			<a href="#contact">Contact</a>
 			<a href="../card/main.php">cart</a>
 			<form class="logout-form" action="logout.php" method="post">
 			<button type="submit" name="logout" class="submit">
@@ -72,6 +70,7 @@ $result = $stmt->get_result();
 	</header>
 
     <section id="shop">
+    <h2>Find Your Favorite Anime Gear</h2>
         <div class="search-container">
             <form method="GET" action="">
                 <input type="text" name="search" placeholder="Search anime merch..." value="<?php echo $searchQuery ?>">
@@ -86,7 +85,6 @@ $result = $stmt->get_result();
                 <button id="search-button" type="submit">🔍</button>
             </form>
         </div>
-        <h2>Find Your Favorite Anime Gear</h2>
         <div class="product-container" id="product-list">
             <?php if ($result->num_rows === 0): ?>
                 <p>No products found.</p>

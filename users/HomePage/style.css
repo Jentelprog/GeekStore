@@ -8,7 +8,7 @@
     --font-heading: 'Bangers',sans-serif;
     --font-body: 'Exo 2',sans-serif;
 }
-/* Reset basic elements */
+
 * {
     margin: 0;
     padding: 0;
@@ -19,13 +19,13 @@
 html {
     scroll-behavior: smooth;
   }
-/* Style the body */
+
 body {
     font-family:var(--font-body);
     background-color: var(--color-white);
 }
 
-/* Style the header */
+
 header {
     background:url("../../img/dark-blue.jpg");
     background-size: cover;
@@ -101,50 +101,12 @@ h2{
     margin-bottom: 20px;
    letter-spacing: 3px;
 }
-.hero-content{
-    padding: 20px;
-    background-color: rgb(0, 0, 0,0.8);
-    box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.467);
-    border-radius: 5%;
-    transition: all 0.7s linear;
-}
-.hero-content:hover{
-    padding: 20px;
-    background-color: rgb(0, 0, 0,9);
-    box-shadow: 100px 100px 100px rgba(0, 0, 0, 0.467);
-    text-shadow: 0px 0px 8px rgba(128, 128, 128, 0.8);
-    border-radius: 5%;
-}
-.hero-content h1{
-    font-size: 3rem;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
 
-.hero-content p{
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
 section{
     border: solid 2px black;
     padding-top: 60px;
     height: 100vh;
 }
-/*#shop{
-    border: solid 2px black;
-    padding-top: 80px;
-    height: 100vh;
-}
-#about{
-    border: solid 2px black;
-    padding-top: 80px;
-    height: 100vh;
-}
-#contact{
-    border: solid 2px black;
-    padding-top: 80px;
-    height: 100vh;
-}*/
 .btn {
     display: inline-block;
     padding: 12px 25px;
@@ -387,11 +349,11 @@ section{
 
 @media (max-width: 1200px) {
     .navbar a {
-      font-size: 20px;
+      font-size: 1.4px;
     }
   
     .product-card {
-      width: 200px;
+      width: 60%;
     }
   }
   
@@ -400,6 +362,7 @@ section{
       flex-direction: column;
       height: auto;
       padding: 10px 20px;
+
     }
   
     .logo {
@@ -433,12 +396,7 @@ section{
     flex-direction: column;
     height: 100%;
     }
-  
-    .poseimg{
-      
-    }
-  
-    .contact-title {
+  .contact-title {
         font-size: 2em;
         padding: 0;
       }
@@ -458,7 +416,7 @@ section{
     }
   
     .product-card {
-      width: 90%;
+      width: 60%;
     }
   }
   
