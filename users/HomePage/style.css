@@ -299,7 +299,7 @@ section{
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 70vh;
+    height: 100vh;
   }
   #contact::before {
     content: "";

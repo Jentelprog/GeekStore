@@ -98,7 +98,7 @@ $result = $stmt->get_result();
                         <p><strong>Category:</strong> <?php echo $row['category'] ?></p>
                         <form action="../card/add.php" method="get">
                             <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <input type="number" name="quantity" value="1" min="1" max="10" required>
+                            <input type="number" name="quantity" value="1" min="1" max="1000" required>
                             <button type="submit">Add to Cart</button>
                         </form>
 
