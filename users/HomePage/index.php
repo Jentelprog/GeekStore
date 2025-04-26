@@ -41,9 +41,9 @@ if (isset($_POST['message'])) {
 		<a href="#"><img src="../../img/whitelogo.png" alt="GeekStore Logo" class="logo"></a>
 		<nav class="navbar">
 			<a href="#home">Home</a>
-			<a href="#shop">Shop</a>
-			<a href="#about">About</a>
+			<a href="../Products/index.php">Shop</a>
 			<a href="#contact">Contact</a>
+			<a href="#about">About</a>
 			<a href="../card/main.php">card</a>
 			<form class="logout-form" action="logout.php" method="post">
 				<button type="submit" name="logout" class="submit">

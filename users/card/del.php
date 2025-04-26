@@ -5,7 +5,7 @@ include "../../db_connect.php";
 $id = $_GET['id'];
 
 // Prepare the SQL statement
-$sql = "DELETE FROM cards WHERE product_id=?";
+$sql = "DELETE FROM cart WHERE id=?";
 $stmt = $conn->prepare($sql);
 
 

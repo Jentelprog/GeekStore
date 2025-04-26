@@ -6,12 +6,12 @@ $product_id = isset($_GET['id']) ? trim($_GET['id']) : "";
 if (isset($_SESSION["user_id"], $product_id) && is_numeric($product_id)) {
     $userId = $_SESSION["user_id"];
     $productId = (int)$product_id;
-
-    $sql = "INSERT INTO cards (user_id, product_id) VALUES (?, ?)";
+    $quantity = $_GET['quantity'];
+    $sql = "INSERT INTO cart (user_id, product_id,quantity,paied) VALUES (?, ?,?,false)";/* ON DUPLICATE KEY UPDATE quantity = quantity + 1";*/
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
-        $stmt->bind_param("ii", $userId, $productId);
+        $stmt->bind_param("iii", $userId, $productId, $quantity);
         $stmt->execute();
         $stmt->close();
     }
