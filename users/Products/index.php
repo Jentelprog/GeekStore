@@ -1,12 +1,8 @@
 <?php
 include "../../db_connect.php";
 
-// Get distinct categories from the database
-$categoryQuery = "SELECT DISTINCT category FROM products";
-$categoryResult = mysqli_query($conn, $categoryQuery);
-
 // Initialize filters
-$searchQuery = isset($_GET['search']) ? trim($_GET['search']) : "";
+$search = isset($_GET['search']) ? trim($_GET['search']) : "";
 $selectedCategory = isset($_GET['category']) ? trim($_GET['category']) : "";
 
 // Build the SQL query with filters
@@ -14,10 +10,10 @@ $sql = "SELECT * FROM products where 1=1";
 $params = [];
 $types = "";
 
-if (!empty($searchQuery)) {
+if (!empty($search)) {
     $sql .= " AND (name LIKE CONCAT('%', ?, '%') OR description LIKE CONCAT('%', ?, '%'))";
-    $params[] = $searchQuery;
-    $params[] = $searchQuery;
+    $params[] = "%$search%";
+    $params[] = "%$search%";
     $types .= "ss";
 }
 
@@ -61,7 +57,7 @@ $result = $stmt->get_result();
             <a href="../HomePage/index.php">Home</a>
             <a href="../Products/index.php">Shop</a>
             <a href="../card/main.php">cart</a>
-            <form class="logout-form" action="logout.php" method="post">
+            <form class="logout-form" action="../HomePage/logout.php" method="post">
                 <button type="submit" name="logout" class="submit">
                     <i class="fa-solid fa-right-to-bracket"></i>
                 </button>
@@ -73,14 +69,12 @@ $result = $stmt->get_result();
         <h2>Find Your Favorite Anime Gear</h2>
         <div class="search-container">
             <form method="GET" action="">
-                <input type="text" name="search" placeholder="Search anime merch..." value="<?php echo $searchQuery ?>">
+                <input type="text" name="search" placeholder="Search anime merch..." value="<?php echo $search ?>">
                 <select name="category">
                     <option value="">All Categories</option>
-                    <?php while ($row = mysqli_fetch_assoc($categoryResult)): ?>
-                        <option value="<?php echo $row['category'] ?>" <?= $selectedCategory === $row['category'] ? 'selected' : '' ?>>
-                            <?php echo $row['category'] ?>
-                        </option>
-                    <?php endwhile; ?>
+                    <option value="figure">figure</option>
+                    <option value="hoodie">hoodie</option>
+                    <option value="sticker">sticker</option>
                 </select>
                 <button id="search-button" type="submit">🔍</button>
             </form>

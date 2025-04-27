@@ -35,7 +35,7 @@ if (isset($_POST['user_id'])) {
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $userId);
         $stmt->execute();
-        header("Location: ../HomePage/index.php");
+        header("Location: trans.php");
         exit();
     } else {
         echo "Error placing order: " . $conn->error;

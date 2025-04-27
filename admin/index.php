@@ -1,5 +1,5 @@
 <?php
-// Connect to database
+// Connect to the database
 include "../db_connect.php";
 
 // Handle Add / Update Product
@@ -45,8 +45,38 @@ if (isset($_GET["edit"])) {
 }
 
 // Fetch all products
-$result = $conn->query("SELECT * FROM products");
+$sql = "SELECT * FROM products WHERE 1=1";
+$params = [];
+$types = "";
+
+$search = $_GET['search'] ?? '';
+$category = $_GET['category'] ?? '';
+
+if (!empty($search)) {
+  $sql .= " AND (name LIKE ? OR description LIKE ?)";
+  $params[] = "%$search%";
+  $params[] = "%$search%";
+  $types .= "ss";
+}
+
+if (!empty($category)) {
+  $sql .= " AND category = ?";
+  $params[] = $category;
+  $types .= "s";
+}
+
+$stmt = $conn->prepare($sql);
+if ($params) {
+  $stmt->bind_param($types, ...$params);
+}
+$stmt->execute();
+$result = $stmt->get_result();
 $products = $result->fetch_all(MYSQLI_ASSOC);
+
+// Fetch all users
+$sql_users = "SELECT * FROM users";
+$result_users = $conn->query($sql_users);
+$users = $result_users->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +93,21 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
   <h1>Admin Panel - GeekStore</h1>
   <a href="../users/login/login.php" class="exit">Leave</a>
 
+  <!-- Product Management Section -->
   <section>
+    <div class="search-container">
+      <form method="GET" action="">
+        <input type="text" name="search" placeholder="Search anime merch..." value="<?= $search ?>">
+        <select name="category">
+          <option value="">All Categories</option>
+          <option value="figure" <?= $category == 'figure' ? 'selected' : '' ?>>Figure</option>
+          <option value="hoodie" <?= $category == 'hoodie' ? 'selected' : '' ?>>Hoodie</option>
+          <option value="sticker" <?= $category == 'sticker' ? 'selected' : '' ?>>Sticker</option>
+        </select>
+        <button id="search-button" type="submit">🔍</button>
+      </form>
+    </div>
+
     <h2><?= $edit_product ? "Edit Product" : "Add New Product" ?></h2>
     <form method="POST">
       <input type="text" name="name" placeholder="Name" required value="<?= $edit_product['name'] ?? '' ?>">
@@ -71,11 +115,9 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
       <input type="text" name="image" placeholder="Image URL" required value="<?= $edit_product['image'] ?? '' ?>">
       <input type="text" name="description" placeholder="Description" required value="<?= $edit_product['description'] ?? '' ?>">
       <select name="category" required>
-        <optgroup label="Select Category">
-          <option value="figure" <?= isset($edit_product) && $edit_product['category'] == 'figure' ? 'selected' : '' ?>>Figure</option>
-          <option value="hoodie" <?= isset($edit_product) && $edit_product['category'] == 'hoodie' ? 'selected' : '' ?>>Hoodie</option>
-          <option value="sticker" <?= isset($edit_product) && $edit_product['category'] == 'sticker' ? 'selected' : '' ?>>Sticker</option>
-        </optgroup>
+        <option value="figure" <?= isset($edit_product) && $edit_product['category'] == 'figure' ? 'selected' : '' ?>>Figure</option>
+        <option value="hoodie" <?= isset($edit_product) && $edit_product['category'] == 'hoodie' ? 'selected' : '' ?>>Hoodie</option>
+        <option value="sticker" <?= isset($edit_product) && $edit_product['category'] == 'sticker' ? 'selected' : '' ?>>Sticker</option>
       </select>
 
       <?php if ($edit_product): ?>
@@ -88,21 +130,44 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
     </form>
   </section>
 
+  <!-- Product List Section -->
   <section>
-    <h2>All Products</h2>
+    <h2 class="nav_link"><a href="index.php">Products</a></h2>
+    <h2 class="nav_link"><a href="users.php">users</a></h2>
+    <h2 class="nav_link"><a href="orders.php">orders</a></h2>
+    <h2 class="nav_link"><a href="messages.php">messages</a></h2>
     <div id="productList">
-      <?php foreach ($products as $product): ?>
-        <div class="product-card">
-          <img src="<?php echo $product['image'] ?>" width="100">
-          <h3><?php echo $product['name'] ?></h3>
-          <p><?php echo $product['price'] ?> dt</p>
-          <p><?php echo $product['description'] ?></p>
-          <p>Category: <?php echo $product['category'] ?></p>
-          <a href="?delete=<?= $product['id'] ?>" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
-          |
-          <a href="?edit=<?php echo $product['id'] ?>">Edit</a>
-        </div>
-      <?php endforeach; ?>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($products as $product): ?>
+            <tr>
+              <td>
+                <img src="<?= $product['image'] ?>" alt="<?= $product['name'] ?>" class="product-image">
+              </td>
+              <td><?php echo $product['id'] ?></td>
+              <td><?php echo $product['name'] ?></td>
+              <td><?php echo $product['price'] ?> dt</td>
+              <td><?php echo $product['description'] ?></td>
+              <td><?php echo $product['category'] ?></td>
+              <td>
+                <a href="?delete=<?= $product['id'] ?>" class="action-button" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a> |
+                <a href="?edit=<?= $product['id'] ?>" class="action-button">Edit</a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
     </div>
   </section>
 
