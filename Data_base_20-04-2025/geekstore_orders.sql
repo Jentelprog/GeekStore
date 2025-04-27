@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `orders`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) DEFAULT NULL,
-  `last_name` varchar(255) DEFAULT NULL,
-  `gender` tinyint NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `orders` (
+  `order_id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
+  `total_price` decimal(10,2) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `orders`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2,'ilyes','chanchah',0,'ilyeschanchah@gmail.com','$2y$10$7th3Kcg8qcvzIC3u5IwApeGMmuC.UYA9ydj4wT9FNnyQDzHClJoBy'),(3,'rafi','bettaieb',0,'bettaieb.rafi04@gmail.com','$2y$10$DVKLLURbMUOZlTyrVjgUXOI3FX5yqp4q6yZ/3jGmhy0JWecv8QRIa'),(4,'haroun','chelbi',0,'chalbiharoun05@gmail.com','$2y$10$yGouHx41uTDjP.GA3/4C1.Y5ndce6J1IJ66OE7mig0aZ6ddZMMpWG'),(7,'selim','thabet',0,'selimthabet@gmail.com','$2y$10$CcDt64b2S/8X1CpiQIk07eODaMPQJ0zT1DCI6CYq.gekjNiYBPJoa'),(8,'rayhane','essouri',1,'rayhane@gmail.com','$2y$10$JM9GVauE0ro/WDfeH1T1zuDUFHKD9H/djP6kflqzCNiYWyN40/GKO'),(9,'oussama','saddi',0,'oussama@gmail.com','$2y$10$/FkjWBfxkXz3QDAQMC5Cd.Wlj71A32rczVKg0RRze70ThuSU7Y0Qu'),(12,'test','testeur',0,'test@gmail.com','$2y$10$TXKu4ru1sua5MBhT4Y1OKu9kvoiN7gxWCSvJpK9VcO8h9AN0rB/Uq');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (19,2,'hello','credit-card',25.99,'2025-04-27 09:08:23'),(23,12,'ohaio','credit-card',32.98,'2025-04-27 11:44:12');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
