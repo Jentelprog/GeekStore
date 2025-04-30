@@ -386,3 +386,99 @@ section{
     padding: 40px;
     text-align: center;
   }
+  @media (max-width: 1200px) {
+    .navbar a {
+      font-size: 1.4px;
+    }
+  
+    .product-card {
+      width: 60%;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    header {
+      flex-direction: column;
+      height: auto;
+      padding: 10px 20px;
+
+    }
+  
+    .logo {
+      position: static;
+      margin-bottom: 10px;
+    }
+  
+    .navbar {
+      align-items: center;
+      gap: 10px;
+
+    }
+  
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .product-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .poseimg {
+    flex-direction: column;
+    height: 100%;
+    }
+  .contact-title {
+        font-size: 2em;
+        padding: 0;
+      }
+  
+    .contact-info,
+    .contact-form {
+      margin: 0;
+      width: 100%;
+    }
+  
+    .contact-form {
+      padding: 10px;
+    }
+  
+    .navbar a {
+      font-size: 18px;
+    }
+  
+    .product-card {
+      width: 60%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+  
+    .hero-content p {
+      font-size: 0.9rem;
+    }
+  
+    .btn {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  
+    .overlay-link {
+      font-size: 1.2em;
+      padding: 5px 10px;
+    }
+  
+    footer {
+      padding: 20px;
+    }
+  }
+  

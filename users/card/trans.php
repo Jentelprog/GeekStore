@@ -22,14 +22,25 @@
 </head>
 
 <body>
-  <video src="../../img/anime-thanks.mp4" alt="Thank You" class="full-page-gif" autoplay loop muted>
-</body>
-<script>
-  // Redirect to the home page after 5 seconds
-  setTimeout(function() {
-    window.location.href = "../HomePage/index.php";
-  }, 2500);
-</script>
+  <video src="../../img/anime-thanks.mp4" class="full-page-gif" autoplay loop muted></video>
+  <audio id="thankVoice" src="../../audio/thank-you-voice.mp3"></audio>
 
+  <script>
+    // Wait for the page to load, then play the voice and video
+    window.onload = function() {
+      const voice = document.getElementById('thankVoice');
+
+      // Try to play the voice immediately
+      voice.play().catch(function(error) {
+        console.log('Audio playback blocked:', error);
+      });
+
+      // Redirect after 2.5 seconds
+      setTimeout(function() {
+        window.location.href = "../HomePage/index.php";
+      }, 2500);
+    };
+  </script>
+</body>
 
 </html>

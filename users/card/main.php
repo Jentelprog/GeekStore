@@ -51,6 +51,13 @@ if (isset($_POST['user_id'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart - GeekStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -60,8 +67,6 @@ if (isset($_POST['user_id'])) {
         <nav class="navbar">
             <a href="../HomePage/index.php">Home</a>
             <a href="../HomePage/index.php">Shop</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
             <a href="../card/main.php">card</a>
             <form class="logout-form" action="logout.php" method="post">
                 <button type="submit" name="logout" class="submit">

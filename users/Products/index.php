@@ -56,7 +56,7 @@ $result = $stmt->get_result();
         <nav class="navbar">
             <a href="../HomePage/index.php">Home</a>
             <a href="../Products/index.php">Shop</a>
-            <a href="../card/main.php">cart</a>
+            <a href="../card/main.php">card</a>
             <form class="logout-form" action="../HomePage/logout.php" method="post">
                 <button type="submit" name="logout" class="submit">
                     <i class="fa-solid fa-right-to-bracket"></i>
